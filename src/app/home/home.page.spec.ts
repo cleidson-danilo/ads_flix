@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
-import { FolderPage } from './folder.page';
+import { FolderPage } from './home.page';
 
 describe('FolderPage', () => {
   let component: FolderPage;
