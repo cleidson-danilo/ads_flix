@@ -42,25 +42,4 @@ Se pretender clonar e testar o projeto no seu ambiente local:
 
 1. **Clonar o repositório:**
    ```bash
-   git clone [https://github.com/cleidson-danilo/anotacao_mobile.git](https://github.com/cleidson-danilo/anotacao_mobile.git)
-
-### 🗺️ Parte 4: Navegação e Bônus
-* **[span_17](start_span)[span_18](start_span)🚀 Integrante 7:** Configuração de rotas dinâmicas e passagem de parâmetros por rota para a Tela de Detalhes, garantindo a pontuação extra[span_17](end_span)[span_18](end_span).
-
----
-
-## 🚀 Tecnologias Utilizadas
-* **[span_19](start_span)[span_20](start_span)Framework:** [Ionic Framework](https://ionicframework.com/) (Componentes UI nativos)[span_19](end_span)[span_20](end_span)
-* **[span_21](start_span)[span_22](start_span)[span_23](start_span)Lógica & Core:** [Angular Standalone](https://angular.dev/) (Control Flow & HttpClient)[span_21](end_span)[span_22](end_span)[span_23](end_span)
-* **Linguagem:** TypeScript
-* **Hospedagem:** Vercel
-
----
-
-## 🛠️ Como Executar o Projeto Localmente
-
-Se pretender clonar e testar o projeto no seu ambiente local:
-
-1. **Clonar o repositório:**
-   ```bash
-   git clone [https://github.com/cleidson-danilo/anotacao_mobile.git](https://github.com/cleidson-danilo/anotacao_mobile.git)
+   git clone [https://github.com/cleidson-danilo/.....]
