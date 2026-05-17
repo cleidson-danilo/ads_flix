@@ -7,25 +7,24 @@ Repositório dedicado ao **ADS Flix**, o projeto prático da **AV1** na discipli
 
 ---
 
-## 👥 Organização do Grupo e Critérios de Avaliação
+## 👥 Divisão do Grupo & Requisitos
 
-Conforme os requisitos estabelecidos pelo professor, cada integrante ficou responsável por uma parte técnica específica do ecossistema do app, garantindo que todos dominem o funcionamento na apresentação:
+Para garantir a organização e os critérios de avaliação do professor, o desenvolvimento do projeto foi distribuído da seguinte forma:
 
-### 🧠 Parte 1: O "Coração" dos Dados (Back-End / Service)
-* **📡 Integrante 1:** Configuração global e injeção do `HttpClient` no projeto (`app.config.ts`).
-* **🛜 Integrante 2 (@Nascimento🔰):** Criação do Serviço (`services/cinema`) e métodos **GET** para chamadas da API.
+| Integrante | Responsabilidade Técnica | Componente / Arquivo | Nota |
+| :--- | :--- | :--- | :--- |
+| **Integrante 1** | Configuração global e Injeção do `HttpClient` | `app.config.ts` | 0.5 pts |
+| **Integrante 2** | Criação do Serviço e consumo da API (Método GET) | `services/cinema.service.ts` | 1.0 pt |
+| **Integrante 3** | Layout da Home e listagem com `@for` | `pages/home` | 0.5 pts |
+| **Integrante 4** | Tela de Busca e lógica condicional `@if` | `pages/buscar` | 0.5 pts |
+| **Integrante 5** | Tratamento de dados com Pipes (Nativo e Customizado) | `pipes/` | 1.0 pt |
+| **Integrante 6** | Diretiva Personalizada com efeito visual | 0.5 pts |
+| **Integrante 7** | Navegação e passagem de parâmetros (Ponto Extra) | `pages/detalhes` | 1.5 pts |
 
-### 📺 Parte 2: Interfaces e Controle de Fluxo (Front-End)
-* **🎬 Integrante 3:** Construção da Tela Inicial (Home) utilizando a diretiva estrutural `@for` para listagem dinâmica de filmes populares.
-* **🔍 Integrante 4:** Criação da Segunda Tela (Buscar) com barra de pesquisa para localização de títulos e lógica condicional `@if`.
-
-### 🎨 Parte 3: Customização e Tratamento de Dados (Pipes e Diretivas)
-* **🎭 Integrante 5:** Implementação de Pipes no projeto (Pipe Built-in para formatar dados e Pipe Customizado para limitar o tamanho da sinopse).
-* **✨ Integrante 6:** Desenvolvimento da Diretiva Personalizada (`appAmpliar`) usando `@HostListener` e `@HostBinding` para efeitos visuais nos cards.
-
-### 🗺️ Parte 4: Navegação e Bônus
-* **🚀 Integrante 7:** Configuração de rotas dinâmicas e passagem de parâmetros por rota para a Tela de Detalhes, garantindo a pontuação extra.
-
+* **Responsável pelo método GET (Integrante 2):** Jhessimiel Nascimento
+* **Responsável pelo Layout da Home e listagem com `@for` (Integrante 3):** Cleidson Danilo 
+* **Responsável por Tratamento de dados com Pipes (Nativo e Customizado (Integrante 5):** Eduardo Sidney 
+* **Responsável Diretiva Personalizada com efeito visual (Integrante 6):** Daniel Oliveira
 ---
 
 ## 🚀 Tecnologias Utilizadas
@@ -38,8 +37,19 @@ Conforme os requisitos estabelecidos pelo professor, cada integrante ficou respo
 
 ## 🛠️ Como Executar o Projeto Localmente
 
-Se pretender clonar e testar o projeto no seu ambiente local:
+Abra o seu terminal e execute os comandos abaixo na ordem indicada:
 
-1. **Clonar o repositório:**
-   ```bash
-   git clone [https://github.com/cleidson-danilo/.....]
+```bash
+# 1. Clone o repositório
+git clone [https://github.com/cleidson-danilo/anotacao_mobile.git](https://github.com/cleidson-danilo/anotacao_mobile.git)
+
+# 2. Acesse a pasta raiz do código Ionic
+cd projeto
+
+# 3. Instale as dependências do projeto
+npm install
+
+# 4. Inicie o app no navegador
+ionic serve
+
+   
