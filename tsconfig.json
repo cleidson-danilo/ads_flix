@@ -5,6 +5,8 @@
   "compilerOptions": {
     "lib": [
       "es2024",
+      "dom",
+      "dom.iterable",
       "ESNext.Array",
       "ESNext.Collection",
       "ESNext.Error",

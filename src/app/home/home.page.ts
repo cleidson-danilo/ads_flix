@@ -6,6 +6,14 @@ import {
 	IonMenuButton,
 	IonTitle,
 	IonToolbar,
+	IonSearchbar,
+	IonCard,
+	IonCardHeader,
+	IonCardTitle,
+	IonCardContent,
+	IonList,
+	IonItem,
+	IonLabel,
 } from "@ionic/angular/standalone";
 
 @Component({
@@ -19,10 +27,20 @@ import {
 		IonMenuButton,
 		IonTitle,
 		IonContent,
+		IonSearchbar,
+		IonCard,
+		IonCardHeader,
+		IonCardTitle,
+		IonCardContent,
+		IonList,
+		IonItem,
+		IonLabel,
 	],
 })
 export class HomePage implements OnInit {
-	constructor() {}
+	constructor() {
+		// Home component initialized
+	}
 
 	ngOnInit() {}
 }
