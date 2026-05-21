@@ -1,0 +1,39 @@
+<!-- home.page.html — com routerLink para a tela de detalhes (Integrante 7) -->
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>🎬 ADS Flix</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- Listagem de filmes com @for -->
+  <!-- Os filmes virão do cinema.service.ts (Integrante 2) -->
+  <!-- ✅ [routerLink] envia o ID do filme para a rota /detalhes/:id -->
+
+  @for (filme of filmes; track filme.id) {
+    <ion-card
+      class="filme-card"
+      [routerLink]="['/detalhes', filme.id]"
+      button
+    >
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + filme.poster_path"
+        [alt]="filme.title"
+        class="card-img"
+      />
+      <ion-card-header>
+        <ion-card-title>{{ filme.title }}</ion-card-title>
+        <ion-card-subtitle>{{ filme.release_date | slice:0:4 }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  }
+
+  @if (filmes.length === 0) {
+    <div style="text-align:center; padding: 40px;">
+      <ion-spinner name="crescent" color="primary"></ion-spinner>
+      <p>Carregando filmes...</p>
+    </div>
+  }
+
+</ion-content>
