@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonSearchbar, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonSpinner, IonItem, IonLabel } from '@ionic/angular/standalone';
-import { Api } from '../services/api'; // Ajuste o caminho da pasta do service do Nascimento
+import { Api } from '../../services/api'; // Ajuste o caminho da pasta do service do Nascimento
 import { RouterLink } from '@angular/router';
 
 @Component({

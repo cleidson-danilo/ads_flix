@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment'
 @Injectable({
 	providedIn: "root",
 })
+
 export class Api {
     private baseUrl = "https://api.watchmode.com/v1";
     private apiKey = environment.watchmodeApiKey;
