@@ -1,19 +1,19 @@
 import { Component, type OnInit } from "@angular/core";
 import {
 	IonButtons,
-	IonContent,
-	IonHeader,
-	IonMenuButton,
-	IonTitle,
-	IonToolbar,
-	IonSearchbar,
 	IonCard,
+	IonCardContent,
 	IonCardHeader,
 	IonCardTitle,
-	IonCardContent,
-	IonList,
+	IonContent,
+	IonHeader,
 	IonItem,
 	IonLabel,
+	IonList,
+	IonMenuButton,
+	IonSearchbar,
+	IonTitle,
+	IonToolbar,
 } from "@ionic/angular/standalone";
 
 @Component({
