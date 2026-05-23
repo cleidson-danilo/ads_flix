@@ -1,0 +1,120 @@
+.poster-container {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+
+  .backdrop-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+  }
+
+  .poster-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(transparent, var(--ion-background-color));
+  }
+
+  .poster-img {
+    position: absolute;
+    bottom: -40px;
+    left: 16px;
+    width: 110px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.movie-info {
+  padding: 50px 16px 16px;
+
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+}
+
+.meta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: var(--ion-color-medium);
+
+  strong {
+    color: var(--ion-text-color);
+    font-size: 18px;
+  }
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.cast-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding: 8px 16px 24px;
+
+  .cast-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 70px;
+
+    ion-avatar {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 4px;
+    }
+
+    .actor-name {
+      font-size: 11px;
+      font-weight: 500;
+      text-align: center;
+      margin: 0;
+      width: 70px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .actor-role {
+      font-size: 10px;
+      color: var(--ion-color-medium);
+      text-align: center;
+      margin: 0;
+      width: 70px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+  color: var(--ion-color-medium);
+}

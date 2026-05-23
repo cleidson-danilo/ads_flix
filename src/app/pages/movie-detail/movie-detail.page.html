@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ movie?.title || 'Detalhes' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleFavorite()">
+        <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'" color="danger"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!isLoading && movie">
+
+  <div class="poster-container">
+    <img [src]="getBackdrop(movie.backdrop_path)" class="backdrop-img"/>
+    <div class="poster-overlay"></div>
+    <img [src]="getPoster(movie.poster_path)" class="poster-img"/>
+  </div>
+
+  <div class="movie-info">
+    <h1>{{ movie.title }}</h1>
+
+    <div class="meta-chips">
+      <ion-chip outline>{{ movie.release_date | date:'yyyy' }}</ion-chip>
+      <ion-chip outline>{{ getRuntime() }}</ion-chip>
+      <ion-chip color="danger" outline *ngFor="let genre of movie.genres">
+        {{ genre.name }}
+      </ion-chip>
+    </div>
+
+    <div class="rating-row">
+      <ion-icon name="star" color="warning"></ion-icon>
+      <strong>{{ movie.vote_average | number:'1.1-1' }}</strong>
+      <span>/ 10 · {{ movie.vote_count | number }} votos</span>
+    </div>
+
+    <div class="action-buttons">
+      <ion-button expand="block" color="danger" (click)="openTrailer()" [disabled]="!trailer">
+        <ion-icon name="logo-youtube" slot="start"></ion-icon>
+        {{ trailer ? 'Ver Trailer' : 'Sem trailer' }}
+      </ion-button>
+      <ion-button expand="block" fill="outline" (click)="toggleFavorite()">
+        <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'" slot="start" color="danger"></ion-icon>
+        {{ isFavorite ? 'Favoritado' : 'Favoritar' }}
+      </ion-button>
+    </div>
+  </div>
+
+  <ion-list lines="none">
+    <ion-list-header>
+      <ion-label color="danger"><strong>Sinopse</strong></ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label class="ion-text-wrap">{{ movie.overview || 'Sem sinopse disponível.' }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list-header>
+    <ion-label color="danger"><strong>Elenco</strong></ion-label>
+  </ion-list-header>
+
+  <div class="cast-container">
+    <div class="cast-card" *ngFor="let actor of cast">
+      <ion-avatar>
+        <img [src]="getPoster(actor.profile_path)" [alt]="actor.name"/>
+      </ion-avatar>
+      <p class="actor-name">{{ actor.name }}</p>
+      <p class="actor-role">{{ actor.character }}</p>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-content *ngIf="isLoading">
+  <div class="loading-container">
+    <ion-spinner name="crescent" color="danger"></ion-spinner>
+    <p>Carregando...</p>
+  </div>
+</ion-content>
