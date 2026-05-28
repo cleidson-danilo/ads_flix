@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>Buscar no ADS Flix</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>🔍 Buscar Filmes</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,10 +13,26 @@
       (ionInput)="buscarFilme($event)">
     </ion-searchbar>
 
+    <!-- Buscas recentes -->
+    @if (!pesquisado && buscasRecentes.length > 0) {
+      <div class="recentes">
+        <p class="recentes-titulo">Buscas recentes</p>
+        <div class="chips">
+          @for (termo of buscasRecentes; track termo) {
+            <ion-chip (click)="buscarPorTermo(termo)">
+              <ion-icon name="time-outline"></ion-icon>
+              <ion-label>{{ termo }}</ion-label>
+              <ion-icon name="close-circle" (click)="$event.stopPropagation(); removerRecente(termo)"></ion-icon>
+            </ion-chip>
+          }
+        </div>
+      </div>
+    }
+
     @if (carregando) {
       <div class="ion-text-center ion-padding">
-        <ion-spinner name="crescent" color="primary"></ion-spinner>
-        <p>Buscando nos servidores...</p>
+        <ion-spinner name="crescent" color="danger"></ion-spinner>
+        <p>Buscando filmes...</p>
       </div>
     } @else {
 
@@ -24,11 +40,14 @@
         <ion-grid>
           <ion-row>
             @for (filme of resultados; track filme.id) {
-              <ion-col size="12" size-md="6">
-                <ion-card [routerLink]="['/detalhes', filme.id]">
+              <ion-col size="6" size-md="4" size-lg="3">
+                <ion-card [routerLink]="['/movie', filme.id]">
+                  <img [src]="getPoster(filme.poster_path)" [alt]="filme.title || filme.name"/>
                   <ion-card-header>
-                    <ion-card-title>{{ filme.name || filme.title }}</ion-card-title>
-                    <ion-card-subtitle>Ano: {{ filme.year || 'Não informado' }}</ion-card-subtitle>
+                    <ion-card-title>{{ filme.title || filme.name }}</ion-card-title>
+                    <ion-card-subtitle>
+                      {{ filme.release_date || filme.first_air_date | date:'yyyy' }}
+                    </ion-card-subtitle>
                   </ion-card-header>
                 </ion-card>
               </ion-col>
@@ -38,12 +57,12 @@
       } @else if (pesquisado) {
         <ion-item lines="none" class="ion-text-center">
           <ion-label color="medium">
-            Nenhum título encontrado para essa pesquisa. 🎬
+            Nenhum filme encontrado. 🎬
           </ion-label>
         </ion-item>
-      } @else {
+      } @else if (buscasRecentes.length === 0) {
         <div class="ion-text-center ion-padding">
-          <p color="medium">Descubra filmes e séries digitando acima!</p>
+          <p>Descubra filmes digitando acima!</p>
         </div>
       }
 

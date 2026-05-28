@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonSearchbar, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonSpinner, IonItem, IonLabel } from '@ionic/angular/standalone';
-import { Api } from '../../services/api'; // Ajuste o caminho da pasta do service do Nascimento
 import { RouterLink } from '@angular/router';
+import { TmdbService } from '../../services/tmdb';
+import {
+  IonContent, IonHeader, IonTitle, IonToolbar, IonSearchbar,
+  IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle,
+  IonCardSubtitle, IonSpinner, IonItem, IonLabel, IonImg,
+  IonChip, IonIcon
+} from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { timeOutline, closeCircle } from 'ionicons/icons';
 
 @Component({
   selector: 'app-buscar',
@@ -13,18 +20,55 @@ import { RouterLink } from '@angular/router';
   imports: [
     IonContent, IonHeader, IonTitle, IonToolbar, IonSearchbar,
     IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle,
-    IonCardSubtitle, IonSpinner, IonItem, IonLabel,
+    IonCardSubtitle, IonSpinner, IonItem, IonLabel, IonImg,
+    IonChip, IonIcon,
     CommonModule, FormsModule, RouterLink
   ]
 })
 export class BuscarPage {
   public resultados: any[] = [];
   public carregando: boolean = false;
-  public pesquisado: boolean = false; // Ajuda a saber se o usuário já tentou buscar algo
+  public pesquisado: boolean = false;
+  public buscasRecentes: string[] = [];
 
-  constructor(private apiService: Api) {}
+  constructor(private tmdb: TmdbService) {
+    addIcons({ timeOutline, closeCircle });
+    this.carregarRecentes();
+  }
 
-  // Função chamada toda vez que o usuário digita e dá enter ou clica em pesquisar
+  carregarRecentes() {
+    const salvo = localStorage.getItem('buscasRecentes');
+    this.buscasRecentes = salvo ? JSON.parse(salvo) : [];
+  }
+
+  salvarRecente(termo: string) {
+    this.buscasRecentes = this.buscasRecentes.filter(b => b !== termo);
+    this.buscasRecentes.unshift(termo);
+    this.buscasRecentes = this.buscasRecentes.slice(0, 5);
+    localStorage.setItem('buscasRecentes', JSON.stringify(this.buscasRecentes));
+  }
+
+  removerRecente(termo: string) {
+    this.buscasRecentes = this.buscasRecentes.filter(b => b !== termo);
+    localStorage.setItem('buscasRecentes', JSON.stringify(this.buscasRecentes));
+  }
+
+  buscarPorTermo(termo: string) {
+    this.pesquisado = true;
+    this.carregando = true;
+    this.salvarRecente(termo);
+
+    this.tmdb.search(termo).subscribe({
+      next: (data: any) => {
+        this.resultados = data.results || [];
+        this.carregando = false;
+      },
+      error: () => {
+        this.carregando = false;
+      }
+    });
+  }
+
   buscarFilme(event: any) {
     const valor = event.target.value;
 
@@ -34,21 +78,10 @@ export class BuscarPage {
       return;
     }
 
-    this.carregando = true;
-    this.pesquisado = true;
+    this.buscarPorTermo(valor.trim());
+  }
 
-    // Chamando o método que o Nascimento criou no Service
-    this.apiService.searchMoviesByTitle(valor).subscribe({
-      next: (data: any) => {
-        // A Watchmode costuma retornar os dados dentro de uma propriedade 'title_results' ou direto.
-        // Se no log vier diferente, ajustamos aqui.
-        this.resultados = data.title_results || data.results || [];
-        this.carregando = false;
-      },
-      error: (err) => {
-        console.error(err);
-        this.carregando = false;
-      }
-    });
+  getPoster(path: string) {
+    return this.tmdb.getImageUrl(path, 'w200');
   }
 }

@@ -6,18 +6,18 @@
 
 <ion-content>
 
-  <!-- Loading -->
   <div class="loading-container" *ngIf="isLoading">
     <ion-spinner name="crescent" color="danger"></ion-spinner>
     <p>Carregando filmes...</p>
   </div>
 
-  <!-- Lista de filmes -->
   <ion-grid *ngIf="!isLoading">
     <ion-row>
-      <ion-col size="6" *ngFor="let filme of filmes">
+      <ion-col size="6" size-md="4" size-lg="3" *ngFor="let filme of filmes">
         <ion-card (click)="verDetalhes(filme.id)">
-          <img [src]="getPoster(filme.poster_path)" [alt]="filme.title"/>
+          <div class="poster-wrapper">
+            <img [src]="getPoster(filme.poster_path)" [alt]="filme.title"/>
+          </div>
           <ion-card-header>
             <ion-card-title>{{ filme.title }}</ion-card-title>
             <ion-card-subtitle>

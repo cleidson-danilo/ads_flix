@@ -1,4 +1,4 @@
-import type { HttpClient } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import type { Observable } from "rxjs";
 import { environment } from '../../environments/environment'
@@ -60,3 +60,4 @@ export class Api {
         )
     }
 }
+

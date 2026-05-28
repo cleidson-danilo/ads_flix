@@ -23,6 +23,12 @@ export class TmdbService {
     return params;
   }
 
+  search(query: string, page = 1): Observable<any> {
+    return this.http.get(`${this.BASE_URL}/search/multi`, {
+      params: this.getParams({ query, page })
+    });
+  }
+
   getMovie(id: number): Observable<any> {
     return this.http.get(`${this.BASE_URL}/movie/${id}`, {
       params: this.getParams({ append_to_response: 'credits,videos' })
@@ -39,5 +45,4 @@ export class TmdbService {
     if (!path) return 'assets/icon/favicon.png';
     return `${this.IMAGE_URL}/${size}${path}`;
   }
-
 }
