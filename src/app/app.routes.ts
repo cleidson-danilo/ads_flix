@@ -9,21 +9,16 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () =>
-      import('./components/home/home.component').then((m) => m.HomeComponent),
+      import('./pages/home/home.component').then((m) => m.HomeComponent),
   },
   {
     path: 'buscar',
     loadComponent: () =>
-      import('./components/buscar/buscar.page').then((m) => m.BuscarPage),
+      import('./pages/buscar/buscar.page').then((m) => m.BuscarPage),
   },
   {
     path: 'movie/:id',
     loadComponent: () =>
       import('./pages/movie-detail/movie-detail.page').then((m) => m.MovieDetailPage),
   },
-  {
-  path: 'buscar',
-  loadComponent: () =>
-    import('./components/buscar/buscar.page').then((m) => m.BuscarPage),
-},
 ];
