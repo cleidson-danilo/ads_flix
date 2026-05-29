@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { HoverZoom } from './directives/hover-zoom';
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import {
 	IonApp,
@@ -47,6 +48,7 @@ import {
 		IonRouterOutlet,
 		IonContent,
 		IonMenu,
+		HoverZoom,
 	],
 })
 export class AppComponent {
