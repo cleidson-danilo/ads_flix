@@ -24,6 +24,8 @@ import {
 	homeSharp,
 	searchOutline,
 	searchSharp,
+	informationOutline,
+	informationSharp,
 } from "ionicons/icons";
 
 @Component({
@@ -55,9 +57,10 @@ export class AppComponent {
 	public appPages = [
 		{ title: "Home", url: "/home", icon: "home" },
 		{ title: "Buscar", url: "/buscar", icon: "search" },
+		{ title: "Sobre Nós", url: "/sobre", icon: "information" },
 	];
 
 	constructor() {
-		addIcons({ homeOutline, homeSharp, bookmarkOutline, bookmarkSharp, searchOutline, searchSharp });
+		addIcons({ homeOutline, homeSharp, bookmarkOutline, bookmarkSharp, searchOutline, searchSharp, informationOutline, informationSharp });
 	}
 }
