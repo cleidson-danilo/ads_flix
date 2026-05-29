@@ -22,7 +22,7 @@ import { HoverZoom } from '../../directives/hover-zoom';
     IonContent, IonHeader, IonTitle, IonToolbar, IonSearchbar,
     IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle,
     IonCardSubtitle, IonSpinner, IonItem, IonLabel, IonImg,
-    IonChip, IonIcon,
+    IonChip, IonIcon, IonButtons, IonMenuButton,
     CommonModule, FormsModule, RouterLink, HoverZoom
   ]
 })
