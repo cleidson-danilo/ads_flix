@@ -7,7 +7,7 @@ import {
   IonContent, IonHeader, IonTitle, IonToolbar, IonSearchbar,
   IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle,
   IonCardSubtitle, IonSpinner, IonItem, IonLabel, IonImg,
-  IonChip, IonIcon
+  IonChip, IonIcon, IonButtons, IonMenuButton
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { timeOutline, closeCircle } from 'ionicons/icons';
