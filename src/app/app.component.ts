@@ -45,6 +45,8 @@ import {
 		IonLabel,
 		IonRouterLink,
 		IonRouterOutlet,
+		IonContent,
+		IonMenu,
 	],
 })
 export class AppComponent {
