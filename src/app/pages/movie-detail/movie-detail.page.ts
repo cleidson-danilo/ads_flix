@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TmdbService } from '../../services/tmdb';
 import { SHARED_IMPORTS } from '../../shared.import';
+import { MovieSynopsisPipe } from '../../pipes/movie-synopsis-pipe';
 import { addIcons } from 'ionicons';
 import { heart, heartOutline, star, logoYoutube } from 'ionicons/icons';
 
@@ -10,7 +11,7 @@ import { heart, heartOutline, star, logoYoutube } from 'ionicons/icons';
   templateUrl: './movie-detail.page.html',
   styleUrls: ['./movie-detail.page.scss'],
   standalone: true,
-  imports: [...SHARED_IMPORTS],
+  imports: [...SHARED_IMPORTS, MovieSynopsisPipe],
 })
 export class MovieDetailPage implements OnInit {
 

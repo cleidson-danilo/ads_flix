@@ -54,7 +54,7 @@
       <ion-label color="danger"><strong>Sinopse</strong></ion-label>
     </ion-list-header>
     <ion-item>
-      <ion-label class="ion-text-wrap">{{ movie.overview || 'Sem sinopse disponível.' }}</ion-label>
+      <ion-label class="ion-text-wrap">{{ (movie.overview | movieSynopsis:450) || 'Sem sinopse disponível.' }}</ion-label>
     </ion-item>
   </ion-list>
 
