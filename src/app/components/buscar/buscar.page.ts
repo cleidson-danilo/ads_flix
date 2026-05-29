@@ -11,6 +11,7 @@ import {
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { timeOutline, closeCircle } from 'ionicons/icons';
+import { HoverZoom } from '../../directives/hover-zoom';
 
 @Component({
   selector: 'app-buscar',
@@ -22,7 +23,7 @@ import { timeOutline, closeCircle } from 'ionicons/icons';
     IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle,
     IonCardSubtitle, IonSpinner, IonItem, IonLabel, IonImg,
     IonChip, IonIcon,
-    CommonModule, FormsModule, RouterLink
+    CommonModule, FormsModule, RouterLink, HoverZoom
   ]
 })
 export class BuscarPage {

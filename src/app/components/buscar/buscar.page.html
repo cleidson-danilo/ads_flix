@@ -41,7 +41,7 @@
           <ion-row>
             @for (filme of resultados; track filme.id) {
               <ion-col size="6" size-md="4" size-lg="3">
-                <ion-card [routerLink]="['/movie', filme.id]">
+                <ion-card [routerLink]="['/movie', filme.id]" appHoverZoom>
                   <img [src]="getPoster(filme.poster_path)" [alt]="filme.title || filme.name"/>
                   <ion-card-header>
                     <ion-card-title>{{ filme.title || filme.name }}</ion-card-title>

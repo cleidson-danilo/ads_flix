@@ -4,13 +4,14 @@ import { TmdbService } from '../../services/tmdb';
 import { SHARED_IMPORTS } from '../../shared.import';
 import { addIcons } from 'ionicons';
 import { star, search } from 'ionicons/icons';
+import { HoverZoom } from '../../directives/hover-zoom';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [...SHARED_IMPORTS],
+  imports: [...SHARED_IMPORTS, HoverZoom]
 })
 export class HomeComponent implements OnInit {
 
